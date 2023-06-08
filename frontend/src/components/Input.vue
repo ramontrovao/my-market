@@ -38,7 +38,7 @@
         <label class="text-gray-500" v-if="inputLabel" :for="inputId">
         {{ inputLabel }}
         </label>
-        <Field :name="inputId" :id="inputId" :rules="inputValidationRules" :type="inputType" :placeholder="inputPlaceholder" class="max-h-18 p-4 outline-none bg-gray-200 border-[1px] border-solid border-gray-400 rounded-md transition-all duration-300 focus:border-blue-400" />
-        <ErrorMessage class="text-red-400" :name="inputId" />
+        <Field :name="inputId" :id="inputId" :rules="inputValidationRules" :type="inputType" :placeholder="inputPlaceholder" class="max-h-18 p-4 outline-none bg-gray-100 border-[1px] border-solid border-gray-400 rounded-md transition-all duration-300 focus:border-blue-400" />
+        <ErrorMessage class="text-red-600" :name="inputId" />
     </div>
 </template>

@@ -11,7 +11,7 @@
 
 <template>
   <main class="flex justify-between min-h-screen">
-    <div class="hidden flex-[0.95] flex-col justify-center items-center gap-4 bg-gradient-to-r from-slate-100 to-slate-200  md:flex md:visible">
+    <div class="hidden flex-[0.95] flex-col justify-center items-center gap-4 bg-gradient-to-br from-blue-700 to-gray-800  md:flex md:visible">
       <img class="w-44" src="/logo.svg" alt="">
     </div>
 

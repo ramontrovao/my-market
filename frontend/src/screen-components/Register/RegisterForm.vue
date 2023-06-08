@@ -18,7 +18,7 @@
             email: yup.string().matches(/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/, "Digite um email válido").required("Esse campo é obrigatório"),
             phone: yup.string().required("Esse campo é obrigatório"),
             password: yup.string().min(8, "A senha precisa ter no mínimo 8 dígitos").matches(/^(?=.*[a-zA-Z])(?=.*\d).+$/, "A senha precisa ter letras e números").required("Esse campo é obrigatório"),
-            "confirm-password": yup.string().required("Esse campo é obrigatório").oneOf([yup.ref('password')], "A senha não coincide")
+            "confirm-password": yup.string().required("Esse campo é obrigatório").oneOf([yup.ref('password')], "As senhas não coincidem")
           })
 
           const onRegister = () => {
