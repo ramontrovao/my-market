@@ -21,12 +21,14 @@
     "vee-validate": "^4.9.6",
     "vue": "^3.3.2",
     "vue-router": "^4.2.0",
+    "vue-the-mask": "^0.11.1",
     "yup": "^1.2.0"
   },
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.2.0",
     "@tsconfig/node18": "^2.0.1",
     "@types/node": "^18.16.8",
+    "@types/vue-the-mask": "^0.11.1",
     "@types/yup": "^0.32.0",
     "@vitejs/plugin-vue": "^4.2.3",
     "@vue/eslint-config-prettier": "^7.1.0",

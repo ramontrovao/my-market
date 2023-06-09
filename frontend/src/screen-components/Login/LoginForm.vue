@@ -5,6 +5,8 @@
     import Input from "../../components/Input.vue"
     import Button from "../../components/Button.vue"
 
+    type TLoginFormResult = Record<"email" | "password", string>
+
     export default {
         name: "LoginForm",
         components: {
@@ -13,8 +15,8 @@
             Button
         },
         setup(){
-          const onLogin = () => {
-            console.log("logou")
+          const onLogin = (values: TLoginFormResult) => {
+            alert(JSON.stringify(values))
           }
 
           const loginFormSchema = yup.object().shape({
