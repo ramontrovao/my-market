@@ -37,7 +37,7 @@
 </script>
 
 <template>
-    <Form @submit="onRegister" :validation-schema="registerFormSchema" class="flex flex-col gap-8 w-full max-w-[25rem]">
+    <Form @submit="onRegister as unknown" :validation-schema="registerFormSchema" class="flex flex-col gap-8 w-full max-w-[25rem]">
         <h2 class="text-2xl">Registre-se no melhor marketplace do Brasil! :D</h2>
  
           <div class="flex flex-col gap-4">

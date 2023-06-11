@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { Form } from "vee-validate"
+    import { Form, type SubmissionHandler } from "vee-validate"
     import * as yup from "yup"
 
     import Input from "../../components/Input.vue"
@@ -33,7 +33,7 @@
 </script>
 
 <template>
-    <Form :validation-schema="loginFormSchema" @submit="onLogin" class="flex flex-col gap-8 w-full max-w-[25rem]">
+    <Form :validation-schema="loginFormSchema" @submit="onLogin as unknown" class="flex flex-col gap-8 w-full max-w-[25rem]">
         <h2 class="text-2xl">Bem vindo! Faça seu login. :)</h2>
 
           <div class="flex flex-col gap-4">

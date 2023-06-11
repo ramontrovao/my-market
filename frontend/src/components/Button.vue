@@ -1,23 +1,46 @@
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent, type PropType } from 'vue'
 
-    export default defineComponent({
-        name: "Button",
-        props: {
-            isLoading: {
-                type: Boolean,
-                required: false
-            }
-        }
-    })
+type TButtonVariants = 'blue' | 'black'
+
+export default defineComponent({
+  name: 'Button',
+  props: {
+    isLoading: {
+      type: Boolean,
+      required: false
+    },
+    variant: {
+      type: String as PropType<TButtonVariants>,
+      default: 'blue',
+      required: false
+    }
+  },
+  setup() {
+    const variants = {
+      blue: 'bg-blue-600',
+      black: 'bg-gray-950'
+    }
+
+    return {
+      variants
+    }
+  }
+})
 </script>
 
 <template>
-    <button v-if="isLoading" class="flex justify-center items-center h-14 bg-white border-blue-600 border-[1px] rounded-md transition-all duration-300">
-        <img class="w-8 h-8" src="../assets/spinner.svg" alt="" />
-    </button>
+  <button
+    v-if="isLoading"
+    :class="`h-14 flex justify-center items-center bg-white border-blue-600 border-[1px] rounded-md transition-all duration-300`"
+  >
+    <img class="w-8 h-8" src="../assets/spinner.svg" alt="" />
+  </button>
 
-    <button v-else class="h-14 bg-blue-600 text-gray-200 rounded-md transition-all duration-300 hover:bg-blue-500">
-        <slot></slot>
-    </button>
+  <button
+    v-else
+    :class="`h-14 p-4 ${variants[variant]} flex justify-center items-center gap-2 text-gray-200 rounded-md transition-all duration-300 hover:opacity-80`"
+  >
+    <slot></slot>
+  </button>
 </template>

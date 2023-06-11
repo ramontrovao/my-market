@@ -16,6 +16,7 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
+    "@phosphor-icons/vue": "^2.1.4",
     "axios": "^1.4.0",
     "pinia": "^2.0.36",
     "vee-validate": "^4.9.6",
