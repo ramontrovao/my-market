@@ -19,6 +19,10 @@ export default defineComponent({
       type: Number,
       required: false,
       default: 14
+    },
+    onClick: {
+      type: Function,
+      required: false
     }
   },
   setup() {
@@ -44,6 +48,7 @@ export default defineComponent({
 
   <button
     v-else
+    @click="(e: MouseEvent) => onClick!(e)"
     :class="`h-${height} p-4 ${variants[variant]} flex justify-center items-center gap-2 text-gray-200 rounded-md transition-all duration-300 hover:opacity-80`"
   >
     <slot></slot>

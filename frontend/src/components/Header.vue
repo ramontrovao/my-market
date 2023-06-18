@@ -45,10 +45,7 @@ export default {
         >
 
         <button @click="toggleProfileInfos">
-          <img
-            class="w-14 h-14 rounded-full border-2 border-blue-700 border-solid"
-            src="/userTeste.png"
-          />
+          <img class="w-14 h-14 rounded-full border-2 border-blue-700 border-solid" src="/eu.png" />
         </button>
       </div>
 
@@ -58,17 +55,19 @@ export default {
       >
         <ul class="flex flex-col gap-2">
           <li>
-            <RouterLink class="hover:opacity-75 transition-all duration-300" to="/home"
-              >Perfil</RouterLink
+            <RouterLink
+              class="block w-full hover:opacity-75 transition-all duration-300"
+              to="/profile"
+              >Meu perfil</RouterLink
             >
           </li>
           <li>
-            <RouterLink class="hover:opacity-75 transition-all duration-300" to="/home"
+            <RouterLink class="block w-full hover:opacity-75 transition-all duration-300" to="/home"
               >Meus anúncios</RouterLink
             >
           </li>
           <li>
-            <RouterLink class="hover:opacity-75 transition-all duration-300" to="/home"
+            <RouterLink class="block w-full hover:opacity-75 transition-all duration-300" to="/"
               >Sair</RouterLink
             >
           </li>
