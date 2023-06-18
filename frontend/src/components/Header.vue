@@ -51,7 +51,7 @@ export default {
 
       <div
         v-show="profileInfosIsActive"
-        class="fixed right-[8rem] top-[5.5rem] w-full max-w-[12rem] p-4 bg-slate-100 rounded-md shadow-2xl"
+        class="fixed right-[8%] top-[5.5rem] w-full max-w-[12rem] p-4 bg-slate-100 rounded-md shadow-2xl"
       >
         <ul class="flex flex-col gap-2">
           <li>
