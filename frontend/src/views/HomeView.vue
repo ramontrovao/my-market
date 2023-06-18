@@ -22,7 +22,12 @@ export default {
       <strong class="text-gray-950 text-xl">Anúncios - Compre produtos variados</strong>
 
       <div class="mt-5 flex gap-2">
-        <Input class="flex-1" input-type="text" input-placeholder="Pesquise um anúncio" />
+        <Input
+          input-id="search"
+          class="flex-1"
+          input-type="text"
+          input-placeholder="Pesquise um anúncio"
+        />
 
         <Button> <PhFunnel :size="32" color="white" /> </Button>
       </div>

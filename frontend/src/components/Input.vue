@@ -1,12 +1,12 @@
 <script lang="ts">
-import { defineComponent, ref } from 'vue'
+import { defineComponent, ref, type Directive } from 'vue'
 import { Field, ErrorMessage, useField } from 'vee-validate'
 import { mask } from 'vue-the-mask'
 
 export default defineComponent({
   name: 'Input',
   directives: {
-    mask
+    mask: mask as Directive
   },
   setup() {
     const { value, errorMessage } = useField('phone')

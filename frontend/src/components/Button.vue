@@ -14,6 +14,11 @@ export default defineComponent({
       type: String as PropType<TButtonVariants>,
       default: 'blue',
       required: false
+    },
+    height: {
+      type: Number,
+      required: false,
+      default: 14
     }
   },
   setup() {
@@ -32,14 +37,14 @@ export default defineComponent({
 <template>
   <button
     v-if="isLoading"
-    :class="`h-14 flex justify-center items-center bg-white border-blue-600 border-[1px] rounded-md transition-all duration-300`"
+    :class="`h-${height} flex justify-center items-center bg-white border-blue-600 border-[1px] rounded-md transition-all duration-300`"
   >
     <img class="w-8 h-8" src="../assets/spinner.svg" alt="" />
   </button>
 
   <button
     v-else
-    :class="`h-14 p-4 ${variants[variant]} flex justify-center items-center gap-2 text-gray-200 rounded-md transition-all duration-300 hover:opacity-80`"
+    :class="`h-${height} p-4 ${variants[variant]} flex justify-center items-center gap-2 text-gray-200 rounded-md transition-all duration-300 hover:opacity-80`"
   >
     <slot></slot>
   </button>
