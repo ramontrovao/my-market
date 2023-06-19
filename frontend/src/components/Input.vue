@@ -8,15 +8,15 @@ export default defineComponent({
   directives: {
     mask: mask as Directive
   },
-  setup() {
-    const { value, errorMessage } = useField('phone')
+  setup(props) {
+    const { value, errorMessage } = useField(props.inputId)
 
-    const phoneNumber = ref('')
+    const inputValueState = ref('')
 
     return {
       value,
       errorMessage,
-      phoneNumber
+      inputValueState
     }
   },
   props: {
@@ -58,8 +58,25 @@ export default defineComponent({
       {{ inputLabel }}
     </label>
     <Field
-      v-model="phoneNumber"
+      v-model="inputValueState"
       v-mask="'## #####-####'"
+      :name="inputId"
+      :id="inputId"
+      :rules="inputValidationRules"
+      :type="inputType"
+      :placeholder="inputPlaceholder"
+      class="max-h-18 p-4 outline-none bg-gray-100 border-[1px] border-solid border-gray-400 rounded-md transition-all duration-300 focus:border-blue-400"
+    />
+    <span class="text-red-600">{{ errorMessage }}</span>
+  </div>
+
+  <div v-else-if="variant === 'brl'" class="flex flex-col gap-1">
+    <label class="text-gray-500" v-if="inputLabel" :for="inputId">
+      {{ inputLabel }}
+    </label>
+    <Field
+      v-model="inputValueState"
+      v-mask="'R$ '.padEnd(inputValueState.length + 3, '#')"
       :name="inputId"
       :id="inputId"
       :rules="inputValidationRules"

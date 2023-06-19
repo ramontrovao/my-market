@@ -4,6 +4,7 @@ import { RouterLink } from 'vue-router'
 import { PhPlus } from '@phosphor-icons/vue'
 
 import Button from '../components/Button.vue'
+import CreateAdvertise from '../screen-components/Home/CreateAdvertise.vue'
 
 export default {
   name: 'Header',
@@ -28,7 +29,7 @@ export default {
   beforeUnmount() {
     document.removeEventListener('click', this.hideProfileInfos)
   },
-  components: { RouterLink, Button, PhPlus }
+  components: { RouterLink, Button, PhPlus, CreateAdvertise }
 }
 </script>
 
@@ -40,10 +41,7 @@ export default {
       </RouterLink>
 
       <div class="flex justify-center items-center gap-5">
-        <Button variant="black" :height="14"
-          ><PhPlus :size="18" color="white" /> Criar anúncio</Button
-        >
-
+        <CreateAdvertise />
         <button @click="toggleProfileInfos">
           <img class="w-14 h-14 rounded-full border-2 border-blue-700 border-solid" src="/eu.png" />
         </button>

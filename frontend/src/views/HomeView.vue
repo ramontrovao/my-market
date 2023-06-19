@@ -1,6 +1,7 @@
 <script lang="ts">
 import { PhFunnel } from '@phosphor-icons/vue'
 
+import FilterAdvertises from '../screen-components/Home/FilterAdvertises.vue'
 import Input from '../components/Input.vue'
 import Button from '../components/Button.vue'
 import PostCard from '../components/PostCard.vue'
@@ -11,7 +12,8 @@ export default {
     Input,
     Button,
     PhFunnel,
-    PostCard
+    PostCard,
+    FilterAdvertises
   }
 }
 </script>
@@ -29,7 +31,7 @@ export default {
           input-placeholder="Pesquise um anúncio"
         />
 
-        <Button> <PhFunnel :size="32" color="white" /> </Button>
+        <FilterAdvertises />
       </div>
     </div>
 
