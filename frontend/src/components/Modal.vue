@@ -45,7 +45,7 @@ export default {
 
   <div
     v-if="modalIsOpen"
-    class="fixed top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] w-full min-h-screen flex justify-center items-center bg-black/50"
+    class="fixed z-50 top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] w-full min-h-screen flex justify-center items-center bg-black/50"
   >
     <main class="w-full max-w-[32rem] p-8 rounded-md bg-slate-100">
       <header class="mb-8 flex justify-between items-center">
@@ -56,7 +56,7 @@ export default {
         </button>
       </header>
 
-      <main class="modal-content h-96 pr-4 pb-4 overflow-y-scroll">
+      <main class="modal-content h-96 pb-4 pt-4 pr-4 overflow-y-scroll">
         <slot></slot>
       </main>
     </main>

@@ -23,36 +23,14 @@ export default {
 <template>
   <Modal modal-title="Filtrar">
     <Form class="flex flex-col gap-4">
-      <strong>Sobre o produto</strong>
+      <strong>Condição</strong>
 
-      <Input
-        input-id="title"
-        input-label="Título do anúncio"
-        input-placeholder="Ex: Tabuleiro de xadrez"
-        input-type="text"
-      />
-
-      <Input
-        input-id="description"
-        input-label="Descrição do anúncio"
-        input-placeholder="Ex: Tabuleiro em ótimo estado bem massa"
-        input-type="text"
-      />
-
-      <Input
-        input-id="brl"
-        input-label="Valor do produto"
-        input-placeholder="Ex: R$ 69,99"
-        variant="brl"
-        input-type="text"
-      />
-
-      <div class="flex gap-8 items-center">
-        <Radio radio-name="new-or-old" radio-id="new" radio-label="Produto Novo" />
-        <Radio radio-name="new-or-old" radio-id="old" radio-label="Produto Usado" />
+      <div class="flex gap-4">
+        <Checkbox check-box-id="new" check-box-label="Novo" />
+        <Checkbox check-box-id="used" check-box-label="Usado" />
       </div>
 
-      <strong>Meios de pagamentos aceitos</strong>
+      <strong>Meios de pagamento</strong>
 
       <div class="flex flex-col">
         <Checkbox check-box-id="ticket" check-box-label="Boleto" />
@@ -62,13 +40,13 @@ export default {
         <Checkbox check-box-id="bank-deposit" check-box-label="Depósito Bancário" />
       </div>
 
-      <div class="mb-8 flex align-center gap-2">
-        <label for="accept-trade">Aceita troca?</label>
+      <Checkbox variant="toggle" check-box-label="Aceita troca?" check-box-id="accept-trade" />
 
-        <Checkbox variant="toggle" check-box-id="accept-trade" />
+      <div class="mt-5 flex gap-8 items-center">
+        <Button type="submit" variant="black">Resetar filtros</Button>
+
+        <Button type="submit"> Aplicar filtros </Button>
       </div>
-
-      <Button type="submit"> Criar anúncio </Button>
     </Form>
   </Modal>
 </template>
