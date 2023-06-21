@@ -24,7 +24,6 @@ export default {
   data() {
     return {
       thumbsSwiper: null,
-      icon: PhWhatsappLogo,
       images: [
         'https://swiperjs.com/demos/images/nature-1.jpg',
         'https://swiperjs.com/demos/images/nature-2.jpg',
@@ -121,9 +120,6 @@ export default {
 
       <div class="flex gap-2">
         <strong class="text-xl">Aceita troca?</strong>
-
-        <PhWhatsappLogo />
-
         <span class="text-xl">Sim</span>
       </div>
 
