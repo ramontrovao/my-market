@@ -6,6 +6,7 @@ import LoginView from '../views/LoginView.vue'
 import RegisterView from '../views/RegisterView.vue'
 import HomeView from '../views/HomeView.vue'
 import ProfileView from '../views/ProfileView.vue'
+import PostView from '../views/PostView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -15,7 +16,8 @@ const router = createRouter({
       component: DefaultLayout,
       children: [
         { path: '/home', component: HomeView },
-        { path: '/profile', component: ProfileView }
+        { path: '/profile', component: ProfileView },
+        { path: '/post/:id', component: PostView }
       ]
     },
     {

@@ -6,7 +6,7 @@ export default {
 
 <template>
   <RouterLink
-    to="/home"
+    to="/post/teste"
     class="w-full flex flex-col gap-2 border-[1px] border-solid border-gray-400 rounded-md transition-all duration-300 hover:shadow-xl"
   >
     <div class="relative">

@@ -2,7 +2,6 @@
 import { Form } from 'vee-validate'
 
 import Modal from '../../components/Modal.vue'
-import Input from '../../components/Input.vue'
 import Checkbox from '../../components/Checkbox.vue'
 import Radio from '../../components/Radio.vue'
 import Button from '../../components/Button.vue'
@@ -12,7 +11,6 @@ export default {
   components: {
     Modal,
     Form,
-    Input,
     Checkbox,
     Radio,
     Button
