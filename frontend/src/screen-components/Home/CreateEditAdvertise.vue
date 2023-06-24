@@ -8,7 +8,7 @@ import Radio from '../../components/Radio.vue'
 import Button from '../../components/Button.vue'
 
 export default {
-  name: 'FilterAdvertises',
+  name: 'CreateEditAdvertise',
   components: {
     Modal,
     Form,
@@ -16,12 +16,19 @@ export default {
     Checkbox,
     Radio,
     Button
+  },
+  props: {
+    variant: {
+      type: String,
+      required: false,
+      default: 'create'
+    }
   }
 }
 </script>
 
 <template>
-  <Modal modal-title="Criar anúncio">
+  <Modal :modal-title="variant === 'create' ? 'Criar anúncio' : 'Editar anúncio'">
     <Form class="flex flex-col gap-4">
       <strong>Sobre o produto</strong>
 
@@ -68,7 +75,13 @@ export default {
         <Checkbox variant="toggle" check-box-id="accept-trade" />
       </div>
 
-      <Button type="submit"> Criar anúncio </Button>
+      <div class="flex flex-col gap-4">
+        <Button type="submit">
+          {{ variant === 'create' ? 'Criar anúncio' : 'Salvar anúncio' }}
+        </Button>
+
+        <Button variant="black"> Previsão do anúncio </Button>
+      </div>
     </Form>
   </Modal>
 </template>
