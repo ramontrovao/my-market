@@ -12,6 +12,16 @@ export default {
     modalTitle: {
       type: String,
       required: true
+    },
+    modalWidthInPx: {
+      type: Number,
+      required: false,
+      default: 512
+    },
+    modalHeightInPx: {
+      type: Number,
+      required: false,
+      default: 1024
     }
   },
   mounted() {
@@ -46,9 +56,9 @@ export default {
   <div
     v-if="modalIsOpen"
     @click="closeModal"
-    class="fixed z-50 top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] w-full min-h-screen flex justify-center items-center bg-black/50"
+    class="fixed z-50 top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] w-full p-8 min-h-screen flex justify-center items-center bg-black/50"
   >
-    <main @click.stop class="w-full max-w-[32rem] p-8 rounded-md bg-slate-100">
+    <main @click.stop :class="`w-full max-w-[52rem] p-8 rounded-md bg-slate-100`">
       <header class="mb-8 flex justify-between items-center">
         <h2 class="font-bold text-2xl">{{ modalTitle }}</h2>
 
@@ -57,7 +67,7 @@ export default {
         </button>
       </header>
 
-      <main class="modal-content h-96 pb-4 pt-4 pr-4 overflow-y-scroll">
+      <main class="modal-content h-[30rem] pb-4 pt-4 pr-4 overflow-y-scroll">
         <slot></slot>
       </main>
     </main>

@@ -1,6 +1,8 @@
 <script lang="ts">
-import { Form, type SubmissionHandler } from 'vee-validate'
+import { Form } from 'vee-validate'
 import * as yup from 'yup'
+
+import { createNewUser } from '../../services/api'
 
 import Input from '../../components/Input.vue'
 import Button from '../../components/Button.vue'
@@ -15,6 +17,38 @@ export default {
     Input,
     Button,
     Form
+  },
+  data() {
+    return {
+      isCreatingUser: false,
+      errorMessage: ''
+    }
+  },
+  methods: {
+    toggleLoading() {
+      this.isCreatingUser = !this.isCreatingUser
+    },
+    setErrorMessage(message: string) {
+      this.errorMessage = message
+    },
+    async onRegister({ email, password, username, phone }: TRegisterFormResult) {
+      try {
+        this.toggleLoading()
+        phone = phone.replace(/\D/g, '')
+
+        await createNewUser({
+          name: username,
+          email,
+          tel: phone,
+          password
+        })
+      } catch (err: any) {
+        this.setErrorMessage(err.response.data.message)
+        console.log(err)
+      } finally {
+        this.toggleLoading()
+      }
+    }
   },
   setup() {
     const registerFormSchema = yup.object().shape({
@@ -38,15 +72,8 @@ export default {
         .oneOf([yup.ref('password')], 'As senhas não coincidem')
     })
 
-    const onRegister = (values: TRegisterFormResult) => {
-      values.phone = values.phone.replace(/\D/g, '')
-
-      alert(JSON.stringify(values))
-    }
-
     return {
-      registerFormSchema,
-      onRegister
+      registerFormSchema
     }
   }
 }
@@ -94,7 +121,9 @@ export default {
       />
     </div>
 
-    <Button type="submit"> Criar conta </Button>
+    <strong class="text-red-500"> {{ errorMessage }} </strong>
+
+    <Button :is-loading="isCreatingUser" type="submit"> Criar conta </Button>
 
     <p>
       Já possui uma conta?

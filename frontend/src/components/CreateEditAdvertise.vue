@@ -1,11 +1,11 @@
 <script lang="ts">
 import { Form } from 'vee-validate'
 
-import Modal from '../../components/Modal.vue'
-import Input from '../../components/Input.vue'
-import Checkbox from '../../components/Checkbox.vue'
-import Radio from '../../components/Radio.vue'
-import Button from '../../components/Button.vue'
+import Modal from './Modal.vue'
+import Input from './Input.vue'
+import Checkbox from './Checkbox.vue'
+import Radio from './Radio.vue'
+import Button from './Button.vue'
 
 export default {
   name: 'CreateEditAdvertise',

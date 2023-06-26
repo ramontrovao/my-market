@@ -1,7 +1,8 @@
 <script lang="ts">
-import { useRouter } from 'vue-router'
 import { Form } from 'vee-validate'
 import * as yup from 'yup'
+
+import { loginUser } from '../../services/api'
 
 import Input from '../../components/Input.vue'
 import Button from '../../components/Button.vue'
@@ -15,22 +16,38 @@ export default {
     Input,
     Button
   },
-  setup() {
-    const { push } = useRouter()
-
-    const onLogin = (values: TLoginFormResult) => {
-      alert(JSON.stringify(values))
-      push('/home')
+  data() {
+    return {
+      isLogging: false
     }
+  },
+  methods: {
+    toggleIsLoading() {
+      this.isLogging = !this.isLogging
+    },
+    async onLogin({ email, password }: TLoginFormResult) {
+      try {
+        this.toggleIsLoading()
+        const loginToken = await loginUser(email, password)
 
+        localStorage.setItem('@my-market-1.0.0/token', JSON.stringify(loginToken))
+        alert(loginToken)
+      } catch (err) {
+        alert('Algo deu errado. :C')
+        console.log(err)
+      } finally {
+        this.toggleIsLoading()
+      }
+    }
+  },
+  setup() {
     const loginFormSchema = yup.object().shape({
       email: yup.string().required('Esse campo é obrigatório'),
       password: yup.string().required('Esse campo é obrigatório')
     })
 
     return {
-      loginFormSchema,
-      onLogin
+      loginFormSchema
     }
   }
 }
@@ -59,7 +76,7 @@ export default {
       />
     </div>
 
-    <Button type="submit"> Entrar </Button>
+    <Button :is-loading="isLogging" type="submit"> Entrar </Button>
 
     <p>
       Não possui uma conta?

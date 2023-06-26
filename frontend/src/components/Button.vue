@@ -43,7 +43,7 @@ export default defineComponent({
     v-if="isLoading"
     :class="`h-${height} flex justify-center items-center bg-white border-blue-600 border-[1px] rounded-md transition-all duration-300`"
   >
-    <img class="w-8 h-8" src="../assets/spinner.svg" alt="" />
+    <img class="w-8 h-8 animate-spin" src="/logo.svg" alt="" />
   </button>
 
   <button

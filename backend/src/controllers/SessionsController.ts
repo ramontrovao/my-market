@@ -14,9 +14,12 @@ export class SessionsController {
 
     const user = await prisma.users.findUnique({
       where: {
-        email
-      }
-    })
+        email,
+      },
+    });
+
+    console.log(user);
+    console.log(email, password);
 
     if (!user) {
       throw new AppError("E-mail e/ou senha incorreta.", 404);
@@ -36,6 +39,8 @@ export class SessionsController {
 
     const { password: removeField, ...rest } = user;
 
-    response.status(201).json({ token, user: { ...rest }, refresh_token: newRefreshToken.id });
+    response
+      .status(201)
+      .json({ token, user: { ...rest }, refresh_token: newRefreshToken.id });
   }
 }

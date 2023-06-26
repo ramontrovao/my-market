@@ -4,7 +4,7 @@ import { RouterLink } from 'vue-router'
 import { PhPlus } from '@phosphor-icons/vue'
 
 import Button from '../components/Button.vue'
-import CreateEditAdvertise from '../screen-components/Home/CreateEditAdvertise.vue'
+import CreateEditAdvertise from '../components/CreateEditAdvertise.vue'
 
 export default {
   name: 'Header',
@@ -13,6 +13,7 @@ export default {
       profileInfosIsActive: false
     }
   },
+  components: { RouterLink, Button, PhPlus, CreateEditAdvertise },
   methods: {
     toggleProfileInfos() {
       this.profileInfosIsActive = !this.profileInfosIsActive
@@ -28,8 +29,7 @@ export default {
   },
   beforeUnmount() {
     document.removeEventListener('click', this.hideProfileInfos)
-  },
-  components: { RouterLink, Button, PhPlus, CreateEditAdvertise }
+  }
 }
 </script>
 
@@ -48,6 +48,7 @@ export default {
       </div>
 
       <div
+        @click="toggleProfileInfos"
         v-show="profileInfosIsActive"
         class="fixed right-[8%] top-[5.5rem] w-full max-w-[12rem] p-4 bg-slate-100 rounded-md shadow-2xl"
       >
@@ -55,12 +56,14 @@ export default {
           <li>
             <RouterLink
               class="block w-full hover:opacity-75 transition-all duration-300"
-              to="/profile"
+              to="/perfil"
               >Meu perfil</RouterLink
             >
           </li>
           <li>
-            <RouterLink class="block w-full hover:opacity-75 transition-all duration-300" to="/home"
+            <RouterLink
+              class="block w-full hover:opacity-75 transition-all duration-300"
+              to="/meus-anuncios"
               >Meus anúncios</RouterLink
             >
           </li>
