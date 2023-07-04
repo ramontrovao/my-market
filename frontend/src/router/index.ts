@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHistory, routerKey } from 'vue-router'
 
 import DefaultLayout from '../layouts/DefaultLayout.vue'
 
@@ -8,6 +8,7 @@ import HomeView from '../views/HomeView.vue'
 import ProfileView from '../views/ProfileView.vue'
 import PostView from '../views/PostView.vue'
 import MyAdvertises from '../views/MyAdvertises.vue'
+import { useAuthStore } from '../stores/auth'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -20,7 +21,10 @@ const router = createRouter({
         { path: '/perfil', component: ProfileView },
         { path: '/post/:id', component: PostView },
         { path: '/meus-anuncios', component: MyAdvertises }
-      ]
+      ],
+      meta: {
+        auth: true
+      }
     },
     {
       path: '/',

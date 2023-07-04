@@ -121,7 +121,7 @@ export default {
       />
     </div>
 
-    <strong class="text-red-500"> {{ errorMessage }} </strong>
+    <strong v-if="errorMessage.length > 0" class="text-red-500"> {{ errorMessage }} </strong>
 
     <Button :is-loading="isCreatingUser" type="submit"> Criar conta </Button>
 

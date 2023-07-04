@@ -22,7 +22,8 @@ export default defineComponent({
     },
     onClick: {
       type: Function,
-      required: false
+      required: false,
+      default: () => {}
     }
   },
   setup() {
